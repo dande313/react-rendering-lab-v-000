@@ -10,6 +10,10 @@ class Animation extends React.Component {
     };
   }
 
+  componentWillUpdate(){
+    this.showLoadingBar()
+  }
+
   getNewCat = () => {
     fetch('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC')
       .then((res, err) => {
@@ -33,7 +37,7 @@ class Animation extends React.Component {
   render() {
     return (
       <div>
-        <img src={this.state.url} height="100px"/>
+        <img src={this.state.url} alt="broken" height="100px"/>
         <div><button onClick={this.getNewCat}>New random .gif!</button></div>
       </div>
     )
